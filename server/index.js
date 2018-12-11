@@ -1,13 +1,9 @@
 /* Node Entry Point */
 
 //Declare globals
-const http = require('http');  //Add node-native http dependency
-const server = http.createServer(); //Create node server instance
+const express = require('express') //Add ExpressJS
+const app = express(); //create an Express wrapper
 
-server.listen(8080);  //Initiate server
+app.listen(8080); //Initiate server
 
-//Event listener for HTTP requests
-server.on('request', (req, res) => {
-	res.write("Hello Node!"); //Begins stream
-	res.end(); //Ends stream
-});
+app.use(express.static('client'));  //Serves files from the 'client' dir
