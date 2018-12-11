@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/JH43051/bookStore/issues"
   },
-  "homepage": "https://github.com/JH43051/bookStore#readme"
+  "homepage": "https://github.com/JH43051/bookStore#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "webpack": "^4.27.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.8"
+  }
 }
