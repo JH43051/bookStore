@@ -1,7 +1,11 @@
+/* Root for mounting react components */
+
+import App from './components/App.js';
+
 window.onload = function() {
 
 ReactDOM.render(
-	<h2>Hadooooken!</h2>,
+	<App />,  //JSX to render
 	document.getElementById('root')
 );
 
