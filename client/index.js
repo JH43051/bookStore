@@ -1,6 +1,6 @@
 /* Root for mounting react components */
 
-import App from './components/App.js';
+import App from './components/App';
 
 window.onload = function() {
 

@@ -1,6 +1,7 @@
 /* Umbrella component */
 
-import BookList from './BookList.js';
+import React from 'react';
+import BookList from './BookList';
 
 class App extends React.Component {
 	constructor(props) {

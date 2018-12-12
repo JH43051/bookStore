@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "nodemon": "nodemon --exec babel-node server/index",
     "webpack": "webpack -wd"
   },
   "repository": {
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/JH43051/bookStore#readme",
   "dependencies": {
     "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
@@ -27,7 +29,10 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "webpack": "^4.27.1"
   },
   "devDependencies": {

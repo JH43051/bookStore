@@ -1,4 +1,5 @@
-import Book from './Book.js';
+import React from 'react';
+import Book from './Book';
 
 const BookList = function(props) {
 	return(
