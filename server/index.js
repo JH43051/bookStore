@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');  //Use EJS to dynamically output server string da
 app.get('/', (req, res) => {
 	res.render('index', {
 		//Holds all string data exported in render.js in "content"
-		content: serverRender()  
+		content: ''//serverRender()  
 	});
 });
 
