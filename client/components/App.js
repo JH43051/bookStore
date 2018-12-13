@@ -8,14 +8,8 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			books: []
+			books: this.props.initialData
 		};
-	}
-	componentDidMount() {
-		// ajax using axios
-		axios.get('http://localhost:8080/api/books').then((resp) => {
-				this.setState({ books: resp.data});
-			});
 	}
 	render() {
 		return(<BookList books={this.state.books} />);

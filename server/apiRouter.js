@@ -1,4 +1,4 @@
-/* REST API for exposing database data using */
+/* REST API for exposing database data */
 
 import express from 'express'; // add ExpressJS
 const pg = require('pg');

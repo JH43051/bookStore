@@ -1,12 +1,10 @@
 /* Root for mounting react components */
-
+import axios from 'axios';
 import App from './components/App';
 
-window.onload = function() {
-
-ReactDOM.render(
-	<App />,  //JSX to render
-	document.getElementById('root')
-);
-
-};
+axios.get('http://localhost:8080/api/books').then((res) => {
+	ReactDOM.hydrate(
+		<App initialData={res.data} />,  //JSX to render
+		document.getElementById('root')
+	);
+});
