@@ -1,4 +1,4 @@
-/* Node Entry Point */
+/* Node Entry Point ("npm run nodemon" in project dir to start server) */
 
 import express from 'express'; //Add ExpressJS
 import serverRender from './render';
@@ -13,8 +13,11 @@ app.use(express.static('client'));  //Serve files from the 'client' dir
 app.set('view engine', 'ejs');  //Use EJS to dynamically output server string data
 
 app.get('/', (req, res) => {
-	serverRender().then((content) => {
-		res.render('index', {content});
+	serverRender().then((renderData) => {
+		res.render('index', {
+			markup: renderData.markup,
+			initialData: renderData.data
+		});
 	});
 });
 

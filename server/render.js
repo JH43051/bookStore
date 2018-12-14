@@ -8,8 +8,10 @@ import axios from 'axios';
 export default function() {
 	return axios.get('http://localhost:8080/api/books').then((res) => {
 		//Outputs entire site as string
-		return ReactDOMServer.renderToString(
-			<App initialData={res.data} />
-		);
+		return { 
+			markup: ReactDOMServer.renderToString(
+					<App initialData={res.data} />),
+			data: res.data
+		}
 	});
 };
