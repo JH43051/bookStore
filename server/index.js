@@ -12,8 +12,9 @@ app.use(cors());
 app.use(express.static('client'));  //Serve files from the 'client' dir
 app.set('view engine', 'ejs');  //Use EJS to dynamically output server string data
 
-app.get('/', (req, res) => {
-	serverRender().then((renderData) => {
+app.get(['/', '/books/:bookId'], (req, res) => {
+	//res.render('index');
+	serverRender(req.params.bookId).then((renderData) => {
 		res.render('index', {
 			markup: renderData.markup,
 			initialData: renderData.data

@@ -2,7 +2,8 @@ import React from 'react';
 
 const Book = function(props) {
 	return(
-		<div onClick={() => props.onClick(props.id)}>
+		<div>
+			<h2>Book Page</h2>
 			<div>{props.title}</div>
 			<div>{props.author}</div>
 			<div>{props.price}</div>

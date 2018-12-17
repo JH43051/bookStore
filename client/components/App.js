@@ -3,6 +3,7 @@
 import React from 'react';
 import BookList from './BookList';
 import Axios from 'axios';
+import Book from './Book';
 
 class App extends React.Component {
 
@@ -10,10 +11,12 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			books: this.props.initialData,
-			ratings: {}
+			ratings: {},
+			currentBookId: null
 		};
 		this.fetchRatingForBook = this.fetchRatingForBook.bind(this);
 		this.calcAvgRatingForBook = this.calcAvgRatingForBook.bind(this);
+		this.showBookPage = this.showBookPage.bind(this);
 	}
 
 	fetchRatingForBook(bookId) {
@@ -34,10 +37,23 @@ class App extends React.Component {
 			}, 0) / ratings.length;
 	}
 
+	showBookPage(bookId) {
+		history.pushState({currentBookId: bookId}, "", `/books/${bookId}`);
+		this.setState({currentBookId: bookId});
+	}
+
 	render() {
-		return(<BookList books={this.state.books} 
-						 onBookClick={this.fetchRatingForBook}
-						 calcRating={this.calcAvgRatingForBook}/>);
+		return (
+			<div>
+				{this.state.currentBookId ? 
+				<Book {...this.state.books.find((item) => item.id === this.state.currentBookId)}/> :
+				<BookList books={this.state.books} 
+						onBookClick={this.fetchRatingForBook}
+						calcRating={this.calcAvgRatingForBook}
+						onTitleClick={this.showBookPage}
+				/>}
+			</div>
+		);
 	}
 }
 
