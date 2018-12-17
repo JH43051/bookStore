@@ -6,7 +6,9 @@ const BookList = function(props) {
 		<div>
 			{props.books.map((book) => 
 			<Book key={book.id}
-				  onClick={props.onBookClick} {...book} />)}
+				  onClick={props.onBookClick}
+				  rating={props.calcRating(book.id)}
+				  {...book} />)}
 		</div>
 	);
 };

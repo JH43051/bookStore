@@ -13,6 +13,7 @@ class App extends React.Component {
 			ratings: {}
 		};
 		this.fetchRatingForBook = this.fetchRatingForBook.bind(this);
+		this.calcAvgRatingForBook = this.calcAvgRatingForBook.bind(this);
 	}
 
 	fetchRatingForBook(bookId) {
@@ -21,13 +22,22 @@ class App extends React.Component {
 			.then((res) => this.setState( (prevState) => {
 				const currentRatings = prevState.ratings;
 				currentRatings[bookId] = res.data;
-				return {rating: currentRatings};
+				return {ratings: currentRatings};
 			}));
 		}
 
+	calcAvgRatingForBook(bookId) {
+		var ratings = this.state.ratings[bookId];
+		if (!ratings || ratings.length === 0) return null;
+		return ratings.reduce((total, reviews) => {
+				return total + reviews.rating
+			}, 0) / ratings.length;
+	}
+
 	render() {
 		return(<BookList books={this.state.books} 
-						 onBookClick={this.fetchRatingForBook}/>);
+						 onBookClick={this.fetchRatingForBook}
+						 calcRating={this.calcAvgRatingForBook}/>);
 	}
 }
 
